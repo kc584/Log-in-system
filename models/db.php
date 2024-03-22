@@ -3,6 +3,6 @@
 $hostname = "localhost";
 $username = "root";
 $password = "";
-$dbname ="test-login";
+$dbname ="users";
 
 $connection = mysqli_connect($hostname, $username, $password, $dbname) or die("Database connection not established.");

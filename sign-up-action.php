@@ -1,7 +1,7 @@
 <?php
 
-include_once "modles/db.php";
-include_once "modles/user.php";
+include_once "models/db.php";
+include_once "models/user.php";
 
 if( ! isset($_POST["email"])) {
     header("Location /");

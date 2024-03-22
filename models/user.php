@@ -19,20 +19,20 @@ class User {
 
     function insert() {
         $sql = "
-        INSERT INTO users(
+        INSERT INTO users (
             email,
             password,
-            token
+            token,
             is_active
             ) VALUES (
                 '{$this->email}',
-                '{$this->paswod_hash}',
+                '{$this->password_hash}',
                 '{$this->token}',
                 '0'
             )
         ";
 
-        $sqlQuery = $this->connection->qery($sql);
+        $sqlQuery = $this->connection->query($sql);
         if (! $sqlQuery) {
             die("MySql query failed" . mysqli_error($this->connection));
         };
