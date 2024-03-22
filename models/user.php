@@ -5,7 +5,8 @@ class User {
     public $password = "";
     public $password_hash = "";
     public $token = "";
-    public $connection;
+    public $authenticated = false;
+    private $connection;
 
     function __construct($connection, $email, $password) {
         $this->email = mysqli_real_escape_string($connection, $email);
