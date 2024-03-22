@@ -37,5 +37,26 @@ class User {
         if (! $sqlQuery) {
             die("MySql query failed" . mysqli_error($this->connection));
         };
+
+        function authenticate() {
+            $sql = "
+            SELECT id, email, password, token, is_active
+            FROM users
+            WHERE email=\"{$this->email}\";
+            ";
+
+            $result = $this->connection->query($sql);
+            if ($row = $result->fetch_assoc()) {
+
+                IF (PASSWORD_VERIFY($this->password, $row["password"])) {
+                    $this->authenticated = true;
+                }
+
+            }
+        }
+    }
+
+    function is_logged_in() {
+        return $this->authenticated;
     }
 }
